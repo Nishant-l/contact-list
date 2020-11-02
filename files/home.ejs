@@ -5,11 +5,12 @@
         </title>
     </head>
     <body>
-        <h1>
-            <% for(let i=0;i<5;i++){%>
-                <%= i %>
+        <ul>
+            <% for(let i of contactList){%>
+                <li><%= i.name %>
+                    <%= i.id %></li>
             <%}%>
 
-        </h1>
+            </ul>
     </body>
 </html>
