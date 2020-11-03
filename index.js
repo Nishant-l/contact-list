@@ -8,12 +8,19 @@ const app=express()
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'files'));
+app.use(express.urlencoded())
 
-var Contact=[{name:'abc',id:'12'},{name:'uvw',id:'23'},{name:'xyz',id:'34'}];
+var Contact=[{name:'abc',contact_no:'12'},{name:'uvw',contact_no:'23'},{name:'xyz',contact_no:'34'}];
 
 app.get('/',function(req,res){
     return res.render('home',{title:'Contact-List',contactList:Contact})
 });
+
+app.post('/addContact',function(req,res){
+    Contact.push(req.body);
+    res.redirect('back');
+
+})
 
 
 app.listen(port,function(err){

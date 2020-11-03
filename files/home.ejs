@@ -6,11 +6,26 @@
     </head>
     <body>
         <ul>
+            <h1>My Contact List</h1>
             <% for(let i of contactList){%>
-                <li><%= i.name %>
-                    <%= i.id %></li>
+                <div>
+                    <li>
+                        <p><%= i.name %></p>
+                        <p><%= i.contact_no %></p>
+                    </li>
+                </div>
             <%}%>
 
-            </ul>
+        </ul>
+
+        <form action="/addContact" method="POST">
+            <input type="text" required name="name" placeholder="Name">
+            <input type="text" required name="contact_no" placeholder="contact_noumber">
+            <button type="submit">ADD Contact</button>
+        </form>
+        
+
+
+        
     </body>
 </html>
