@@ -23,6 +23,15 @@ app.post('/addContact',function(req,res){
 
 })
 
+app.get('/dc/:contact_no',function(req,res){
+    let index_pos=Contact.findIndex(Contact => Contact.contact_no==req.params.contact_no)
+    if(index_pos!=-1){
+        Contact.splice(index_pos,1)
+    }
+    res.redirect('back');
+
+});
+
 
 app.listen(port,function(err){
     if(err){
