@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    background-color: black;
+}
+#heading{
+    color: rgb(245, 245, 245);
+    text-align: center;
+    margin-top: 50px;
+    font-family: sans-serif;
+}
+#listItem{
+    display: flex;
+    border:2px black solid;
+    width: 600px;
+    justify-content: space-between;
+    background-color: blueviolet;
+    margin-bottom: 5px;
+    height: 40px;
+}
+#listItem p{
+    display: inline-block;
+    margin: 11px;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+#outer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+#form{
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    margin-top: 10vh;
+    margin-right: 10vw;
+    width: 500px;
+}
+#list{
+    margin-left: 7vh;
+}
