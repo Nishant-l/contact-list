@@ -3,6 +3,9 @@ const path=require('path')
 const port=8000;
 
 
+const db=require('./config/mongoose');
+const Contact = require('./models/contact');
+
 const app=express()
 
 
@@ -11,15 +14,25 @@ app.set('views',path.join(__dirname,'files'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 
-var Contact=[];
+var Contacttt=[];
 
 app.get('/',function(req,res){
-    return res.render('home',{title:'Contact-List',contactList:Contact})
+    return res.render('home',{title:'Contact-List',contactList:Contacttt})
 });
 
 app.post('/addContact',function(req,res){
-    Contact.push(req.body);
-    res.redirect('back');
+    // Contact.push(req.body);
+    Contact.create({
+        name:req.body.name,
+        contact_no:req.body.contact_no
+    },function(err,newContact){
+        if(err){console.log('err in creating contact');return};
+
+        console.log('*******',newContact);
+        res.redirect('back');
+    })
+    
+    // res.redirect('back');
 
 })
 
