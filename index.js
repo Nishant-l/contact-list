@@ -17,7 +17,16 @@ app.use(express.static('assets'));
 var Contacttt=[];
 
 app.get('/',function(req,res){
-    return res.render('home',{title:'Contact-List',contactList:Contacttt})
+
+
+Contact.find({},function(err,contacts){
+
+    if(err){
+        console.log('error in fatching contact from db');
+        return;
+    }
+    return res.render('home',{title:'Contact-List',contactList:contacts})
+})
 });
 
 app.post('/addContact',function(req,res){
