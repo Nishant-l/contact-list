@@ -46,11 +46,25 @@ app.post('/addContact',function(req,res){
 })
 
 app.get('/dc/:contact_no',function(req,res){
-    let index_pos=Contact.findIndex(Contact => Contact.contact_no==req.params.contact_no)
-    if(index_pos!=-1){
-        Contact.splice(index_pos,1)
-    }
-    res.redirect('back');
+
+    var id=req.params.contact_no;
+    console.log(id);
+    Contact.findByIdAndDelete(id,function(err){
+        if(err){
+            return console.log('error occured')
+        }
+        return res.redirect('back');
+    })
+
+
+
+
+
+    // let index_pos=Contact.findIndex(Contact => Contact.contact_no==req.params.contact_no)
+    // if(index_pos!=-1){
+    //     Contact.splice(index_pos,1)
+    // }
+    // res.redirect('back');
 
 });
 
